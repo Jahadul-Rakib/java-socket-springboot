@@ -1,24 +1,24 @@
-package com.rakib.web_socket_java.client;
+package com.rakib.web_socket_java.socket.client;
 
 import java.io.*;
 import java.net.Socket;
 
-public class MainOne {
+public class Main {
     public static void main(String[] args) throws IOException {
         Socket socket = new Socket("127.0.0.1", 80);
         System.out.println("Connected");
-        new ListenerOne(socket);
+        new Listener(socket);
     }
 
 }
 
-class ListenerOne implements Runnable {
+class Listener implements Runnable {
     private final Socket socket;
 
-    public ListenerOne(Socket socket) throws IOException {
+    public Listener(Socket socket) throws IOException {
         this.socket = socket;
         DataOutputStream outputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
-        outputStream.writeUTF("name:RakibOne");
+        outputStream.writeUTF("name:Rakib");
         outputStream.flush();
         System.out.println("Send Success.");
         run();
