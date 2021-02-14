@@ -1,4 +1,4 @@
-package com.rakib.web_socket_java.websocket_with_sockjs;
+package com.rakib.web_socket_java.sockjs_websocket;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;

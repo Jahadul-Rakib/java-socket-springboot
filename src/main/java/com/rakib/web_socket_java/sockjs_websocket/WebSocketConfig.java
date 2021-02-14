@@ -1,4 +1,4 @@
-package com.rakib.web_socket_java.websocket_with_sockjs;
+package com.rakib.web_socket_java.sockjs_websocket;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

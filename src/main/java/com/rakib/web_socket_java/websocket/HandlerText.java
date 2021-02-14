@@ -4,22 +4,18 @@ import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
+import static com.rakib.web_socket_java.websocket.Constants.WEB_SOCKET_SESSION;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class WebSocketHandler extends TextWebSocketHandler {
-
-    public static List<WebSocketSession> webSocketSessions = new ArrayList<>();
+public class HandlerText extends TextWebSocketHandler {
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) {
-        webSocketSessions.add(session);
+        WEB_SOCKET_SESSION.add(session);
     }
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) {
-        webSocketSessions.remove(session);
+        WEB_SOCKET_SESSION.remove(session);
     }
 
     @Override

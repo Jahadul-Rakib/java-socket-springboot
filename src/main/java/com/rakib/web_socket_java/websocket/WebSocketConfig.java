@@ -9,30 +9,26 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @Configuration
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
-    public final static String CHAT_END_POINT = "/chat";
-    public final static String ALL_END_POINT = "/all";
-    public final static String GROUP_END_POINT = "/group";
+    public final static String CHAT_END_POINT = "/text";
+    public final static String FILE_END_POINT = "/file";
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
         webSocketHandlerRegistry
-                .addHandler(getWebSocketHandler(), CHAT_END_POINT)
+                .addHandler(handlerText(), CHAT_END_POINT)
                 .setAllowedOrigins("*");
         webSocketHandlerRegistry
-                .addHandler(getWebSocketHandler(), GROUP_END_POINT)
-                .setAllowedOrigins("*");
-        webSocketHandlerRegistry
-                .addHandler(getWebSocketHandlerForAllUser(), ALL_END_POINT)
+                .addHandler(handlerBinary(), FILE_END_POINT)
                 .setAllowedOrigins("*");
     }
 
     @Bean
-    public WebSocketHandler getWebSocketHandler() {
-        return new WebSocketHandler();
+    public HandlerText handlerText() {
+        return new HandlerText();
     }
 
     @Bean
-    public WebSocketHandlerForAllUser getWebSocketHandlerForAllUser() {
-        return new WebSocketHandlerForAllUser();
+    public HandlerBinary handlerBinary() {
+        return new HandlerBinary();
     }
 }

@@ -1,4 +1,4 @@
-package com.rakib.web_socket_java.websocket_with_sockjs;
+package com.rakib.web_socket_java.sockjs_websocket;
 
 public class Constant {
     public final static String CHAT_END_POINT = "/chat_app";
